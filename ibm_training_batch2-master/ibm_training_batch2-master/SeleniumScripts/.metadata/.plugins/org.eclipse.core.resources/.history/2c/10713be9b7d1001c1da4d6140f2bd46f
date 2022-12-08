@@ -1,0 +1,61 @@
+package IBM_Training2.SeleniumScripts;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class TestDropdown 
+{
+
+	ChromeDriver D;
+	WebElement Dropdown;
+	Select Se;
+	@BeforeClass
+	public void StartTest() throws MalformedURLException
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\IBMTraining_2\\Drivers\\chromedriver.exe");
+		D=new ChromeDriver();
+		D.get("https://courses.letskodeit.com/practice");
+		
+	}
+	
+	@Test
+	public void TestDefaultDropdownValue() throws InterruptedException
+	{
+		/*
+		 * <select id="carselect" name="cars"> 
+		 * 		<option value="bmw">BMW</option> //0
+		 * 		<option value="benz">Benz</option> //1
+		 * 		<option value="honda">Honda</option> //2
+		 * </select>
+		 */
+		Dropdown=D.findElement(By.id("carselect"));
+		Se=new Select(Dropdown);
+		/*
+		 * Following method will return a option tag of selected option
+		 */
+		WebElement DefaultOption=Se.getFirstSelectedOption();
+		String TextOfOption=DefaultOption.getText();
+		Assert.assertEquals(TextOfOption, "BMW","Wrong option is selected by default");
+		Thread.sleep(5000);
+	}
+
+	public void SelectOptionAndCheck()
+	{
+		Se.selectByIndex(1);
+		WebElement DefaultOption=Se.getFirstSelectedOption();
+		String TextOfOption=DefaultOption.getText();
+		Assert.assertEquals(TextOfOption, "Benz","Wrong option is selected");
+	
+		Se.selectByVisibleText("Honda");
+		Se.selectByValue("bmw");
+	}
+
+}

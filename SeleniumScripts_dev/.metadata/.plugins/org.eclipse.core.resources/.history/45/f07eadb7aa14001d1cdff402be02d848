@@ -1,0 +1,60 @@
+package IBM_Training.Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class hiddenTestFunctionalityPractice {
+	WebDriver D;
+	WebElement box;
+	RemoteWebDriver D1;
+
+	@BeforeTest
+	public void start() {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\IBMADMIN\\Documents\\Driver\\chromedriver_win32\\chromedriver.exe");
+		D = new ChromeDriver();
+		D1=new ChromeDriver();
+		D.get("https://courses.letskodeit.com/practice");
+		D.manage().window().maximize();
+
+	}
+
+	@Test(priority = 1)
+	public void scroll() {
+		WebElement mouseHover = D.findElement(By.id("mousehover"));
+		D1.executeScript("arguments[0].scrollIntoView();", mouseHover);
+		Actions act = new Actions(D1);
+		act.moveToElement(mouseHover);
+	}
+
+	@Test(priority = 2)
+	public void showCheck() {
+		WebElement show = D.findElement(By.id("show-textbox"));
+		show.click();
+		WebElement box = D.findElement(By.name("show-hide"));
+		boolean isShown = box.isDisplayed();
+		Assert.assertEquals(isShown, true);
+
+	}
+
+	@Test(priority = 3)
+	public void hideCheck() {
+		WebElement hide = D.findElement(By.id("hide-textbox"));
+		hide.click();
+		boolean isHide = box.isDisplayed();
+		Assert.assertEquals(isHide, false);
+	}
+
+	@AfterTest
+	public void stop() {
+		D.quit();
+	}
+}

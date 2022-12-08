@@ -1,0 +1,54 @@
+package IBM_Training.Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Amazon {
+	WebDriver D;
+
+	@BeforeClass
+	public void start() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\IBMADMIN\\Documents\\Driver\\chromedriver.exe");
+		D = new ChromeDriver();
+		D.get("https://www.amazon.in/ref=as_li_ss_tl?ie=UTF8&linkCode=ll2&tag=enin-edge-topsites-curate-ana-21&linkId=fbedcb44d04a4bae8eae32722a2f41c2&language=en_IN");
+
+	}
+
+	@Test
+	public void login() {
+		WebElement login = D.findElement(By.id("nav-link-accountList-nav-line-1"));
+		login.click();
+		WebElement email = D.findElement(By.name("email"));
+		email.sendKeys("sagarthbs@gmail.com");
+		WebElement Continue = D.findElement(By.id("continue"));
+		Continue.click();
+		WebElement password = D.findElement(By.id("ap_password"));
+		password.sendKeys("Gaongeri$300");
+		WebElement SignInsubmit = D.findElement(By.id("signInSubmit"));
+		SignInsubmit.click();
+		WebElement homePage=D.findElement(By.id("nav-logo-sprites"));
+		String text = D.getTitle();
+		String logoText=homePage.getText();
+		System.out.println(text);
+		System.out.println(logoText);
+		boolean textVer = text.contains("Online Shopping site in India");
+		boolean logoTextVer=logoText.contains(".in");
+		Assert.assertEquals(textVer, true, "Title not displayed");
+		Assert.assertEquals(logoTextVer, true,"Logo text not displayed");
+
+	}
+	@Test
+	public void dropDown()
+	{
+		WebElement accountList=D.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]/span"));
+		Actions action =new Actions(D);
+		action.moveToElement(accountList).perform();
+	
+	}
+}

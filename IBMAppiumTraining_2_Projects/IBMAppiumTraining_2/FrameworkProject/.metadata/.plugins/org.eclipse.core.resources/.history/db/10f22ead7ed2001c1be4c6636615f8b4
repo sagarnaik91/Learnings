@@ -1,0 +1,27 @@
+package IBMTraining_2.AutomationFramework;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import IBMTraining_2.AutomationFramework.Utilities.*;
+public class WebTest extends AutomationTest
+{
+	public void LaunchApplication()
+	{
+		System.setProperty("webdriver.chrome.driver", Utils.EnvVars.get("ChromeDriverPath"));
+		D=new RemoteWebDriver(new URL("http://192.168.0.101:4724/wd/hub"),Cap);
+		D.get(Utils.EnvVars.get("ApplicationURL"));
+	}
+
+	public void EnterText(WebElement E,String val)
+	{
+		E.clear();
+		E.sendKeys(val);
+	}
+
+	public void CreateObjectRepository(String FileName)
+	{
+		super.CreateObjectRepository(FileName+"_Web");
+	}
+}

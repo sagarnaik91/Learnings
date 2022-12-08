@@ -1,0 +1,7 @@
+Assignments:
+1.
+	Open https://courses.letskodeit.com/practice
+	Click on Disable button
+	check that textbox gets disabled
+	Click on Enable button
+	check that textbox gets enabled

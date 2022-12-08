@@ -1,0 +1,20 @@
+package IBMTraining_2.TestCaseProject.Pages;
+
+public class LoginPage 
+{
+
+	public LoginPage()
+	{
+		/*
+		 * To take us to the login page by invoking an
+		 * application
+		 */
+	}
+	public HomePage DoLogin(String UserName,String Pass)
+	{
+		
+		
+		
+	}
+	
+}

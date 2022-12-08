@@ -1,0 +1,26 @@
+https://github.com/amit1992luthra/cucumber.git
+1)Maven project
+2)Add cucumber plugin
+3)Cucumber pom
+4)Create paccakeges features, StepDefinition,testrunner
+5)create file under general
+https://docs.google.com/spreadsheets/d/1efO_udkD3Fan0JfaXyfg4j6k9odW320mtoigBAeFpRA/edit?usp=sharing
+
+Step 1:- Create a Maven Project
+Step 2:- Install Cucumber Plugin from Eclipse Market Place
+Step 3:- Copy paste the cucumber dependency in POM.xml file
+Cucumber-core
+cucumber-java
+cucumber-junit
+gerkin
+selenium
+Step 4:- Create 3 packages
+-feature
+-stepdefinition
+-testrunner
+Step 5:- create a feature file
+Rightclick on feature packages
+new->other->general->file
+give any file name with extention .feature
+for example
+test.feature

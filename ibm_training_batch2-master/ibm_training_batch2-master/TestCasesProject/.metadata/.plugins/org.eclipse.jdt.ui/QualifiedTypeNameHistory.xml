@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.BeforeClass"/>
+    <fullyQualifiedTypeName name="IBMTraining_2.TestCaseProject.Pages.LoginPage"/>
+    <fullyQualifiedTypeName name="IBMTraining_2.TestCaseProject.Pages.HomePage"/>
+    <fullyQualifiedTypeName name="IBMTraining_2.TestCaseProject.Pages.DashboardPage"/>
+    <fullyQualifiedTypeName name="IBMTraining_2.AutomationFramework.AutomationTest"/>
+    <fullyQualifiedTypeName name="IBMTraining_2.AutomationFramework.AndroidTest"/>
+    <fullyQualifiedTypeName name="IBMTraining_2.AutomationFramework.Utilities.Utils"/>
+</qualifiedTypeNameHistroy>

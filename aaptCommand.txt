@@ -1,0 +1,1 @@
+aapt dump badging C:\Users\IBMADMIN\Downloads\EriBank.apk

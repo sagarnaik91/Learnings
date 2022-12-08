@@ -1,0 +1,3 @@
+UserNameField,BY_ID,txtUsername
+PasswordField,BY_NAME,txtPassword
+LoginButton,BY_CSS,input[type='submit']

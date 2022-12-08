@@ -1,0 +1,13 @@
+package IBMTraining_2.TestCaseProject.Pages;
+
+public class LoginPage 
+{
+
+	public void DoLogin(String UserName,String Pass)
+	{
+		
+		
+		
+	}
+	
+}

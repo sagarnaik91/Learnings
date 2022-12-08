@@ -1,0 +1,24 @@
+package IBMAppiumTraining2.AppiumScript;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeClass;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class SampleScript 
+{
+	AndroidDriver D;
+	@BeforeClass
+	public void StartTest()
+	{
+		DesiredCapabilities Cap=new DesiredCapabilities(); 
+		Cap.setCapability("app", "D:\\IBMAppiumTraining\\EriBank.apk");
+		Cap.setCapability("deviceName", "And1");
+		Cap.setCapability(null, false);
+		Cap.setCapability(null, false);
+		Cap.setCapability(null, false);
+		Cap.setCapability(null, false);
+	}
+}
+	
+

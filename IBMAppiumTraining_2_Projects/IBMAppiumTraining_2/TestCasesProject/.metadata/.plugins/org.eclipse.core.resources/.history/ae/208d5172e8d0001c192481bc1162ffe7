@@ -1,0 +1,11 @@
+package IBMTraining_2.TestCaseProject.TestCases;
+
+public class TestHomePage 
+{
+
+	@BeforeClass
+	public void StartTest()
+	{
+		
+	}
+}

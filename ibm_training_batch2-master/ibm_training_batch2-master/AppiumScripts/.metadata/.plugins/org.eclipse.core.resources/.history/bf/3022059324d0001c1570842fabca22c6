@@ -1,0 +1,16 @@
+package IBMAppiumTraining2.AppiumScript;
+
+import org.testng.annotations.BeforeClass;
+
+public class SampleScript 
+{
+	AndroidDriver D;
+	@BeforeClass
+	public void StartTest()
+	{
+		
+		
+	}
+}
+	
+

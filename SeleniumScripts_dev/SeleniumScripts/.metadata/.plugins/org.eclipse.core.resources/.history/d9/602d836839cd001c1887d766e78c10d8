@@ -1,0 +1,27 @@
+package IBM_Training.Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Amazon {
+	WebDriver D;
+
+	@BeforeClass
+	public void start() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\IBMADMIN\\Documents\\Driver\\chromedriver.exe");
+		D = new ChromeDriver();
+		D.get("https://www.amazon.in/ref=as_li_ss_tl?ie=UTF8&linkCode=ll2&tag=enin-edge-topsites-curate-ana-21&linkId=fbedcb44d04a4bae8eae32722a2f41c2&language=en_IN");
+
+	}
+
+	@Test
+	public void login() {
+		WebElement login = D.findElement(By.linkText("Hello, Sign in"));
+		login.click();
+
+	}
+}

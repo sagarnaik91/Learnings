@@ -1,0 +1,20 @@
+package RestAPI.Automation;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+import io.restassured.response.Response;
+
+public class TestCase1 {
+	@Test
+	public static void post() {
+
+		RestAssured.baseURI = "http://localhost:3000";
+		String reqBody = "{\"firstName\":\"Sagar\",\"lastName\":\"Naik\",\"place\":\"Gaongeri\"}";
+		given().header("content-type", "application/json").body(reqBody).when().post("ibm_example").then()
+				.statusCode(201);
+
+	}
+}

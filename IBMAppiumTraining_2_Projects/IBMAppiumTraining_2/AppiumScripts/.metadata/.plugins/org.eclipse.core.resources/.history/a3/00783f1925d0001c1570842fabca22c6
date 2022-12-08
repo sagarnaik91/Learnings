@@ -1,0 +1,18 @@
+package IBMAppiumTraining2.AppiumScript;
+
+import org.testng.annotations.BeforeClass;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class SampleScript 
+{
+	AndroidDriver D;
+	@BeforeClass
+	public void StartTest()
+	{
+		DesiredCapabilities Cap=new DesiredCapabilities(); 
+		
+	}
+}
+	
+

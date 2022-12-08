@@ -1,0 +1,17 @@
+1.Blog on Why does test engineers need to posses test automation tools:
+	https://www.linkedin.com/pulse/why-does-test-engineer-need-posses-automation-skills-days-dingare
+
+
+
+2.Blog on Selenium architecture
+	https://www.linkedin.com/pulse/unleashed-selenium-architecturea-way-learn-30-pranoday-dingare
+
+
+3.Blog on Appium automation tool architecture:
+	https://www.linkedin.com/pulse/appium-future-mobile-application-automation-pranoday-dingare
+
+4.Blog on Selenium tools for Windows apps(Winium)
+
+	https://www.linkedin.com/pulse/selenium-windows-applicationswinium-tools-pranoday-dingare
+
+

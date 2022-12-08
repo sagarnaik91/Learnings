@@ -1,0 +1,83 @@
+package IBMTraining_2.AutomationFramework;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import IBMTraining_2.AutomationFramework.Utilities.Utils;
+
+public abstract class AutomationTest {
+	RemoteWebDriver D;
+	public HashMap <String,WebElement>ObjectRepo=new HashMap<String,WebElement>();
+	public abstract void LaunchApplication();
+	public void ClickElement(WebElement E)
+	{
+		E.click();
+	}
+	
+	public abstract void EnterText(WebElement E,String value);
+	public void AppendText(WebElement E,String V)
+	{
+		E.sendKeys(V);
+	}
+		
+	public void CreateObjectRepository(String ObjectRepoFileName)
+	{
+		String ObjectRepoFilePath=Utils.EnvVars.get("ObjectRepositoriesPath")+"\\"+ObjectRepoFileName+".txt";
+		try {
+			FileReader FR=new FileReader(ObjectRepoFilePath);
+			BufferedReader BR= new BufferedReader(FR);
+			String Line=BR.readLine();
+			while(Line!=null)
+			{
+				String [] parts=Line.split(",");
+				String ElementReference=parts[0];
+				String StratergyToken=parts[1];
+				String Locator=parts[2];
+				WebElement E=FindAndReturnElement(StratergyToken, Locator);
+				ObjectRepo.put(ElementReference, E);
+				Line=BR.readLine();
+			}	
+			
+		} catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			System.out.println("Please check is file : "+ObjectRepoFilePath+" exists");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("There is a problem in reading file : "+ObjectRepoFilePath);
+		}
+	}		
+		public WebElement FindAndReturnElement(String StratergyToken, String Locator)
+		{
+			WebElement RequiredElement=null;
+			switch(StratergyToken)
+			{
+				case "BY_ID":
+					RequiredElement=D.findElement(By.id(Locator));
+					break;
+				case "BY_CLASS":
+					RequiredElement=D.findElement(By.className(Locator));
+					break;
+				case "BY_XPATH":
+					RequiredElement=D.findElement(By.xpath(Locator));
+					break;
+				case "BY_NAME":
+					RequiredElement=D.findElement(By.name(Locator));
+					break;
+				case "BY_CSS":
+					RequiredElement=D.findElement(By.cssSelector(Locator));
+					break;
+			}
+			return RequiredElement;
+		}
+	
+
+	
+}

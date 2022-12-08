@@ -1,0 +1,6 @@
+package IBMTraining_2.AutomationFramework;
+
+public abstract class AutomationTest {
+	RemoteWebDriver D;
+	public abstract void StartTest();
+}

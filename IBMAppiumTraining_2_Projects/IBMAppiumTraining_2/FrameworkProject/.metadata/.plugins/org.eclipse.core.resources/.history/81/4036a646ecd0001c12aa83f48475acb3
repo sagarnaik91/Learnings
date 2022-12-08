@@ -1,0 +1,9 @@
+package IBMTraining_2.AutomationFramework;
+
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public abstract class AutomationTest {
+	RemoteWebDriver D;
+	public abstract void StartTest();
+	
+}

@@ -1,0 +1,62 @@
+package IBM_Training.Selenium;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class dropDownHandlePractice {
+	WebDriver D;
+	Select sel;
+	WebElement carselect;
+
+	@BeforeTest
+	public void start() {
+		System.setProperty("webdriver.geck.driver",
+				"C:\\Users\\IBMADMIN\\Documents\\Driver\\geckodriver-v0.31.0-win64\\geckodriver.exe");
+		D = new FirefoxDriver();
+		D.get("https://courses.letskodeit.com/practice");
+		D.manage().window().maximize();
+
+	}
+
+	@Test
+	public void checkBoxFunc1() {
+		carselect = D.findElement(By.id("carselect"));
+		sel = new Select(carselect);
+		String firstSelectedOption = sel.getFirstSelectedOption().getText();
+		boolean isBMW = firstSelectedOption.contains("BMW");
+		Assert.assertEquals(isBMW, true);
+	}
+
+	@Test
+	public void checkBoxFunc2() {
+		sel.selectByIndex(1);
+	}
+
+	@Test
+	public void checkBoxFunc3() {
+		List<String> possibleValues = new ArrayList<String>();
+		possibleValues.add("BMW");
+		possibleValues.add("Benz");
+		possibleValues.add("Honda");
+		List<WebElement> allOptions = sel.getOptions();
+		for (WebElement option : allOptions) {
+			possibleValues.contains(option.getText());
+		}
+
+	}
+
+	@AfterTest
+	public void stop() {
+		D.quit();
+	}
+}

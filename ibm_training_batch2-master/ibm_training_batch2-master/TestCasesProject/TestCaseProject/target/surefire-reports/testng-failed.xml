@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Orange HRM Demo application testing]" verbose="0">
+  <test thread-count="5" name="Test Login functionality(failed)" verbose="0">
+    <classes>
+      <class name="IBMTraining_2.TestCaseProject.TestCases.LoginTestCaseWithValid">
+        <methods>
+          <include name="StartTest"/>
+          <include name="TestLoginWithValidCredentials"/>
+        </methods>
+      </class> <!-- IBMTraining_2.TestCaseProject.TestCases.LoginTestCaseWithValid -->
+    </classes>
+  </test> <!-- Test Login functionality(failed) -->
+</suite> <!-- Failed suite [Orange HRM Demo application testing] -->

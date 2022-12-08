@@ -1,0 +1,19 @@
+package IBMTraining_2.AutomationFramework;
+
+import org.openqa.selenium.WebElement;
+
+public class WebTest extends AutomationTest
+{
+	public void LaunchApplication()
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\IBMTraining_2\\Drivers\\chromedriver.exe");
+		//D=new ChromeDriver();
+		//D.get("http://orangehrmdemo.com");
+	}
+
+	public void EnterText(WebElement E,String val)
+	{
+		E.clear();
+		E.sendKeys(val);
+	}
+}

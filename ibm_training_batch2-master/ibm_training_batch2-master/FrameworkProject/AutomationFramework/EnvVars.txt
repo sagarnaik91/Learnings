@@ -1,0 +1,8 @@
+AndroidAPKFilePath,D:\IBMAppiumTraining\EriBank.apk
+AndroidAppPackage,com.experitest.ExperiBank
+AndroidAppActivity,LoginActivity
+AndroidDeviceName,Android9
+AutomationName,UiAutomator2
+ObjectRepositoriesPath,D:\IBMAppiumTraining_2\TestCasesProject\TestCaseProject\Repositories
+ApplicationURL,https://opensource-demo.orangehrmlive.com/
+ChromeDriverPath,D:\IBMTraining_2\Drivers\chromedriver.exe

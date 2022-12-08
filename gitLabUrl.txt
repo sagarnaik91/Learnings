@@ -1,0 +1,2 @@
+https://gitlab.com/pranodaytrainer/ibm_training_batch2.git
+https://www.atlassian.com/software/jira/free

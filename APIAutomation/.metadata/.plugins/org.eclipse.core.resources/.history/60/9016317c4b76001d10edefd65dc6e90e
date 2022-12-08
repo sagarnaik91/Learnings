@@ -1,0 +1,17 @@
+package RestAPI.Automation;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class DuplicateWords 
+{
+	public static void main(String [] args)
+	{
+		String str="My name is Sagar and my friend name is xyz";
+		Map<String,Integer> hashmap=new HashMap<>();
+		String[] words=str.split("");
+		System.out.println(words[0]);
+		
+	}
+
+}

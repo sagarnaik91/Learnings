@@ -1,0 +1,7 @@
+<suite name="Orange HRM Demo application testing">
+	<test name="Test Login functionality">
+		<classes>
+			<class name="IBMTraining_2.TestCaseProject.TestCases.LoginTestCaseWithValid"/>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,28 @@
+package IBMTraining_2.TestCaseProject.Pages;
+
+import IBMTraining_2.AutomationFramework.AutomationTest;
+
+public class LoginPage 
+{
+	AutomationTest T;
+	public LoginPage()
+	{
+		/*
+		 * To take us to the login page by invoking an
+		 * application
+		 */
+		T=new AndroidTest();
+	}
+	public DashboardPage DoLogin(String UserName,String Pass)
+	{
+		
+		/*
+		 * Entering Username
+		 * Enter password
+		 * Click on Login button
+		 */
+		
+		return new DashboardPage();
+	}
+	
+}

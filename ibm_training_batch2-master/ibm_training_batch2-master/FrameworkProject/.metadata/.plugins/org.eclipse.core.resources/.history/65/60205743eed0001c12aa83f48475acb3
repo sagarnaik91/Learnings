@@ -1,0 +1,19 @@
+package IBMTraining_2.AutomationFramework;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public abstract class AutomationTest {
+	RemoteWebDriver D;
+	public abstract void LaunchApplication();
+	public void ClickElement(WebElement E)
+	{
+		E.click();
+	}
+	
+	public void EnterText(WebElement E,String value)
+	{
+		
+	}
+	
+}

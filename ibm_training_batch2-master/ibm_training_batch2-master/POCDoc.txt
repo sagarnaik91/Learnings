@@ -1,0 +1,42 @@
+1. Open browser
+2. Open URL https://opensource-demo.orangehrmlive.com/index.php/auth/login
+3. Enter "Admin" in Username field
+	1.We need to instruct a tool to identify the element
+		i)Image-based identification
+			Sikuli,Seetest,Appium,Eggplant,UFT
+		ii)Native Identification
+			Selenium,Appium,Seetest,UFT
+		btn
+		{
+			background="Green"
+			foreground="White"
+		}
+			<input name="txtUsername" id="txtUsername" class='txt' type="text">
+			<input name="Submit" id="submit" class='btn' type="text">
+		iii)Relational Identification
+			Selenium,UFT
+			
+		iv)Visual-relational identification
+			Selenium,UFT
+
+POC(Proof Of Concept):
+	1. UI design technology
+		a) Web-based technologies:
+			HTML,HTML5,react,angularJS
+		b)Native SDK
+			Winforms,C#,JAVA AWT,Swings
+		c) Hybrid
+	2. License:
+		i)Licensed Tools
+			Subscription based licensed
+				Seetest
+			Perpetual license
+				Node-locked	UFT,TC
+				Floating	UFT,TC
+		ii)Free tools
+			Selenium,Appium
+	3. Scripting Languages
+	4. OS platforms we need to run tests on
+	5. Community
+
+			

@@ -1,0 +1,27 @@
+package IBMTraining_2.TestCaseProject.TestCases;
+
+import org.testng.annotations.BeforeClass;
+
+import IBMTraining_2.TestCaseProject.Pages.DashboardPage;
+import IBMTraining_2.TestCaseProject.Pages.HomePage;
+import IBMTraining_2.TestCaseProject.Pages.LoginPage;
+
+public class TestHomePage 
+{
+	LoginPage lp;
+	HomePage hp;
+	DashboardPage dp;
+	@BeforeClass
+	public void StartTest()
+	{
+		lp=new LoginPage();
+		dp=lp.DoLogin("company","company");
+		dp.GoToHomePage();
+	}
+	
+	public void testhomepage()
+	{
+		
+		
+	}
+}

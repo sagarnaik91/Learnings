@@ -1,0 +1,5 @@
+package IBMTraining_2.AutomationFramework;
+
+public class AndroidTest extends AutomationTest {
+
+}

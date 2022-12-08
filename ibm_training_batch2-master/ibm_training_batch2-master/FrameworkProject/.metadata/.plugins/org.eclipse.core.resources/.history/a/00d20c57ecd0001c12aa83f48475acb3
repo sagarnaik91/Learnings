@@ -1,0 +1,11 @@
+package IBMTraining_2.AutomationFramework;
+
+public class WebTest extends AutomationTest
+{
+	public void StartTest()
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\IBMTraining_2\\Drivers\\chromedriver.exe");
+		D=new ChromeDriver();
+		D.get("http://orangehrmdemo.com");
+	}
+}

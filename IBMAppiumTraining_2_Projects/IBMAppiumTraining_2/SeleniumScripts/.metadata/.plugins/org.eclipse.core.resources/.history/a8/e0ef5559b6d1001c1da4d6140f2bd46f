@@ -1,0 +1,45 @@
+package IBM_Training2.SeleniumScripts;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class TestDropdown 
+{
+
+	RemoteWebDriver D;
+	WebElement Dropdown;
+	@BeforeClass
+	public void StartTest() throws MalformedURLException
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\IBMTraining_2\\Drivers\\chromedriver.exe");
+		D=new ChromeDriver();
+		D.get("https://courses.letskodeit.com/practice");
+		
+	}
+	
+	@Test
+	public void TestDefaultDropdownValue()
+	{
+		/*
+		 * <select id="carselect" name="cars"> 
+		 * 		<option value="bmw">BMW</option> 
+		 * 		<option value="benz">Benz</option> 
+		 * 		<option value="honda">Honda</option> 
+		 * </select>
+		 */
+		Dropdown=D.findElement(By.id("carselect"));
+		Select Se=new Select(Dropdown);
+		/*
+		 * Following method will return a option tag of selected option
+		 */
+		WebElement DefaultOption=Se.getFirstSelectedOption();
+		
+	}
+}

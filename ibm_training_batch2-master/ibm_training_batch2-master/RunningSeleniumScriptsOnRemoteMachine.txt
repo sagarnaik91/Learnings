@@ -1,0 +1,44 @@
+In order to run selenium scripts on a remote machine we need following things on remote machine:
+1. selenium-server-standalone.jar 
+2. chromedriver.exe
+3. chrome browser
+Then we need to run following command and start server:
+java -jar D:\IBMTraining_2\selenium-server-standalone-2.53.0.jar -Dwebdriver.chrome.driver=D:\\IBMTraining_2\\Drivers\\chromedriver.exe -host 192.168.0.103 -port 4724
+
+In script we need to do following changes:
+We need create a DesiredCapability to define session properties.
+In desiredcapability object we need to set "browserName" capability with the name of a browser on 
+which we want to run our tests on.
+If we want to run tests on Chrome we will set browserName to chrome.
+
+DesiredCapabilities Cap=new DesiredCapabilities();
+Cap.setCapability("browserName", "chrome");
+
+Then we need to call constructor of RemoteWebDriver with 2 arguments:
+1. URL of a server(IPAddress:Port)
+2. DesiredCapability object having all session properties.
+
+D=new RemoteWebDriver(new URL("http://192.168.0.101:4724/wd/hub"),Cap);
+
+Appium Session establishment:
+While establishing Appium session, server performs following activities:
+1. It checks if an application is already installed on the device.If yes then it uninstalls that
+app, if we have set FullReset to true.
+2. It installs the application apk on the device : server used adb install <path of the apk>
+and for this server needs path of the .apk file
+3. It launches the app on the device: For launching the app server uses adb shell am start <packagename>/<activityname>
+server needs package name and launchable activity name	
+
+Using desired capabilities we can provide these settings to the server and server will use these
+settings and run the commands to perform required activities(installation/launching) while session
+establishment.
+
+
+{
+  "app": "D:\\IBMAppiumTraining\\EriBank.apk",
+  "deviceName": "Android9",
+  "platformName": "Android",
+  "automationName": "UiAutomator2",
+  "appPackage": "com.experitest.ExperiBank",
+  "appActivity": "LoginActivity"
+}

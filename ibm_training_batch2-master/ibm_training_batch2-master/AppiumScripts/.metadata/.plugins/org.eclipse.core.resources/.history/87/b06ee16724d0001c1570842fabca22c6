@@ -1,0 +1,13 @@
+package IBMAppiumTraining2.AppiumScript;
+
+public class SampleScript 
+{
+	@BeforeClass
+	public void StartTest()
+	{
+		
+		
+	}
+}
+	
+

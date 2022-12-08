@@ -1,0 +1,14 @@
+package IBMTraining_2.TestCaseProject.Pages;
+
+public class DashboardPage 
+{
+
+	public HomePage GoToHomePage()
+	{
+		/*
+		 * identification of hyperlink
+		 * and click on hyperling
+		 */
+		return new HomePage();
+	}
+}

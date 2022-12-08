@@ -1,0 +1,39 @@
+package IBM_Training.Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class DropdownHandle {
+	WebDriver D;
+	Select sel;
+	WebElement dropdown;
+	@BeforeClass
+	public void start() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\IBMADMIN\\Documents\\Driver\\chromedriver.exe");
+		D = new ChromeDriver();
+		D.get("https://courses.letskodeit.com/practice");
+		D.manage().window().maximize();
+	}
+
+	@Test
+public void dropDownControl() {
+	dropdown = D.findElement(By.id("carselect"));
+	sel = new Select(dropdown);
+	WebElement firstSelected = sel.getFirstSelectedOption();
+	String text = firstSelected.getText();
+	boolean isEqual = text.equals("BMW");
+	Assert.assertEquals(isEqual, true, "BMW is not displayd");
+}
+
+	@Test
+	public void verifySelect() throws InterruptedException {
+		sel.selectByValue("Honda");
+
+	}
+}

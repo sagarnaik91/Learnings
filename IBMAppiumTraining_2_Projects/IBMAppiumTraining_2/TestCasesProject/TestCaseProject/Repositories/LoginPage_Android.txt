@@ -1,0 +1,3 @@
+UserNameField,BY_ID,com.experitest.ExperiBank:id/usernameTextField
+PasswordField,BY_ID,com.experitest.ExperiBank:id/passwordTextField
+LoginButton,BY_ID,com.experitest.ExperiBank:id/loginButton

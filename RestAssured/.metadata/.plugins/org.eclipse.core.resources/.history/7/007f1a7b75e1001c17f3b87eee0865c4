@@ -1,0 +1,68 @@
+package RestAPI.Automation;
+
+import static io.restassured.RestAssured.given;
+
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.testng.ITestContext;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+public class PetStore 
+{
+    @DataProvider(name="testdata")
+	public Object[][] testdata() throws IOException
+	{
+		Object[][] obj=testdata.testdata();
+		return obj;
+	}
+	@Test(dataProvider="testdata")
+	public static void createuser(String uname, String fName, String lName, String email,String pwd,String ph,String uS,ITestContext val)
+	{
+		RestAssured.baseURI="https://petstore.swagger.io/v2";
+		JSONObject obj=new JSONObject();
+		obj.put("username", uname);
+		obj.put("firstName", fName);
+		obj.put("lastName", lName);
+		obj.put("email", email);
+		obj.put("password", pwd);
+		obj.put("phone", ph);
+		obj.put("userStatus", uS);
+		given().contentType(ContentType.JSON).log().all()
+		.when().body(obj.toJSONString()).post("user")
+		.then().statusCode(200).log().all();
+		
+		val.setAttribute("uNameval", uname);
+		
+				
+		
+	}
+	@Test(dataProvider="testdata")
+	public static void modifyuser(String uname, String fName, String lName, String email,String pwd,String ph,String uS,ITestContext val1) 
+	{
+		RestAssured.baseURI="https://petstore.swagger.io/v2";
+		JSONObject obj=new JSONObject();
+		obj.put("username", uname);
+		obj.put("firstName", fName);
+		obj.put("lastName", lName+"abc");
+		obj.put("email", email);
+		obj.put("password", pwd);
+		obj.put("phone", ph);
+		obj.put("userStatus", uS);
+		given().contentType(ContentType.JSON).log().all()
+		.when().body(obj.toJSONString()).put("user/"+val1.getAttribute("uNameval"))
+		.then().statusCode(200).log().all();
+		val1.setAttribute("passwordVal",pwd);
+	}
+	@Test
+	public static void getUser(ITestContext val2)
+	{
+		given().contentType(ContentType.JSON).log().all()
+		.when().get("user/"+val2.getAttribute("uNameval"))
+		.then().statusCode(200);
+	}
+}

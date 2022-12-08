@@ -1,0 +1,57 @@
+package IBMTraining_2.AutomationFramework.Utilities;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
+import IBMTraining_2.AutomationFramework.AutomationTest;
+import IBMTraining_2.AutomationFramework.AndroidTest;
+public class Utils 
+{
+	public static HashMap<String,String>EnvVars=new HashMap<String,String>();
+	public static void InitialiseEnvVars(String EnvFileName)
+	{
+		String EnvFilePath="D:\\IBMAppiumTraining\\AutomationFramework\\AutomationFramework\\"+EnvFileName;
+		try 
+		{
+			FileReader FR=new FileReader(EnvFilePath);
+			BufferedReader BR=new BufferedReader(FR);
+			String Line=BR.readLine();
+			while(Line!=null)
+			{
+				String[]Parts=Line.split(",");
+				String VariableName=Parts[0];
+				String VariableValue=Parts[1];
+				EnvVars.put(VariableName, VariableValue);
+				Line=BR.readLine();
+			}	
+			
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			System.out.println("Please check if file "+EnvFilePath+" exists");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("There is some problem in reading file : "+EnvFilePath);
+		}
+	
+	}
+	
+	public static AutomationTest GetAutomationTest(String PlatformName)
+	{
+		AutomationTest T=null;
+		switch(PlatformName.toUpperCase())
+		{
+			case "ANDROID":
+				T= new AndroidTest();
+				break;
+			case "IOS":
+				//T= new IOSTest();
+				//break;
+		}
+		return T;
+	}
+}

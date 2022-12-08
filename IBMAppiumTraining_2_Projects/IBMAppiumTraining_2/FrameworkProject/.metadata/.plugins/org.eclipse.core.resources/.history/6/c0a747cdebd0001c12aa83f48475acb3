@@ -1,0 +1,9 @@
+package IBMTraining_2.AutomationFramework;
+
+public class WebTest extends AutomationTest
+{
+	public void StartTest()
+	{
+		
+	}
+}

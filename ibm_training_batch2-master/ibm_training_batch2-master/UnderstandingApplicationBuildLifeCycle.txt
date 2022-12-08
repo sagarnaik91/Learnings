@@ -1,0 +1,74 @@
+class Calculator
+{
+	public int Addition(int a,int b)
+	{
+
+		return a+b;
+	}
+
+
+}
+
+Phases of Application Developement
+1.Downloading 3 rd party libs
+	3 rd party classes are those which does not come along with Java environment
+	Now these 3 rd party classes get implemented,compiled and packaged inside the java libs(i.e. .jar files)
+	And these jar files are shared with the developers.
+	These 3 rd party libs are made available on central repositories like mvnrepository.com
+
+
+	If application developement needs classes apart from the ones available with Java
+
+2.	Building CLASSPATH of the project by setting the location where 3 rd party libs are downloaded
+	in -CP command
+
+3.	Implementation of code
+
+4.	Compile the code.During this compile phase compiler will use CLASSPATH set to find unresolved/unknown
+	symbols
+
+5.	Unit testing.
+
+6.	Packaging i.e. creating package(.jar file for library app,.war file for WebApplication e.g.)
+
+7.	Deploying the app 	
+
+Maven is a build tool which assists developer to automate each and every build lifecycle phase.
+Maven has CLI(Command-line interface)
+
+GroupID: Usually indicates Developer/owner of project.It should be unique across the artifact repo.
+ArtifactID: Name of the project.It should be unique under the particular GroupID
+Version:A particular released version.It should be unique for particular project
+
+Build life cycle phases and their order:
+1.Clean:Which cleans all previously generated compiled files as well as package files and allows to run
+fresh build lifecycle.
+2.Download resources(i.e. dependencies):In this phase all project's dependencies would be downloaded from
+artifact repository like mvnrepository.com.Resources maven plugin downloads project dependencies along with their circular 
+dependencies.It by default downloads the dependencies at C:\Users\<Current User>\.m2\repository.
+It creates directory structure according to GroupID,ArtificatID and version of dependency and jar file
+would be downloaded there in.And it builds the CLASSPATH of the project.
+We can change the default location of LocalRepository from C:\Users\<Current User>\.m2\repository to any
+other location of our choice by creating settings.xml inside C:\Users\<Current User>\.m2
+Settings.xml should mention a desired local repository location in <localRepository> tag
+e.g.
+<settings>
+		gs>
+3.Compilation of code:Maven uses compiler plugin which internally uses javac(a java compiler) to compile
+the source code of our application.Compiler plugin compiles all .java files from src/main/java which
+is default location to find the sources of an application.
+This compiler plugin takes java files as input and produces .class files as an output of this
+compilation phase.Compilation phase creates .class files for application,inside ProjectDIR/target/classes folder
+And .class files for Unit testcases would be created inside ProjectDIR/target/test-classes
+
+4.Unit Testing:
+First mvn compile:test-compile phase compiles Unit test code from src/test/java and puts the created class files inside
+ProjectDIR/target/test-classes folder
+Sure-fire plugin takes care of triggering unit testcases.
+
+5.Package phase:jar plugin for maven bundles application's compiled files(i.e. .class files created
+inside PROJECT_DIR/target/classes folder) in .jar file.This jar file gets created in target folder
+6.Release Phase:
+	Installing created jar file in Maven's local repository using maven's maven-install-plugin
+	Deploying created jar file in Central artifact repository like mvnrepository.com from where
+	it can be downloaded and used by developers.

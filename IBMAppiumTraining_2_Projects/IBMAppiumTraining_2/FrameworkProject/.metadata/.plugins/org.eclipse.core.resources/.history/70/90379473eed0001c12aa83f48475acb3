@@ -1,0 +1,30 @@
+package IBMTraining_2.AutomationFramework;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class AndroidTest extends AutomationTest 
+{
+
+	public void LaunchApplication()
+	{
+		DesiredCapabilities Cap=new DesiredCapabilities(); 
+		Cap.setCapability("app", "D:\\IBMAppiumTraining\\EriBank.apk");
+		Cap.setCapability("deviceName", "And1");
+		Cap.setCapability("platformName", "Android");
+		Cap.setCapability("automationName", "UiAutomator2");
+		Cap.setCapability("appPackage", "com.experitest.ExperiBank");
+		Cap.setCapability("appActivity", "LoginActivity");
+		try {
+			D=new AndroidDriver(new URL("http://192.168.0.102:4723/wd/hub"),Cap);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+}

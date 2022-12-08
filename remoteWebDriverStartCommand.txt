@@ -1,0 +1,1 @@
+java -jar C:\Users\IBMADMIN\Documents\Driver\selenium-server-standalone-2.53.0.jar -Dwebdriver.chrome.driver=C:\Users\IBMADMIN\Documents\Driver\chromedriver.exe -host 172.25.96.1 -port 4724

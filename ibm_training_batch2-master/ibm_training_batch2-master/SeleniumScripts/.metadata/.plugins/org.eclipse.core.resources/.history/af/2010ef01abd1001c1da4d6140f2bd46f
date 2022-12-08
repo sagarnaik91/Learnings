@@ -1,0 +1,27 @@
+package IBM_Training2.SeleniumScripts;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.BeforeClass;
+
+public class ScrollingthePage {
+
+	ChromeDriver D;
+	@BeforeClass
+	public void StartTest() throws MalformedURLException
+	{
+		//System.setProperty("webdriver.chrome.driver", "D:\\IBMTraining_2\\Drivers\\chromedriver.exe");
+		//System.setProperty("webdriver.gecko.driver", "D:\\IBMTraining_2\\Drivers\\geckodriver.exe");
+		DesiredCapabilities Cap=new DesiredCapabilities();
+		Cap.setCapability("browserName", "chrome");
+		D=new RemoteWebDriver(new URL("http://192.168.0.101:4724/wd/hub"),Cap);
+		//D=new ChromeDriver();
+		//D=new FirefoxDriver();
+		D.get("https://courses.letskodeit.com/practice");
+		
+	}
+	
+}
